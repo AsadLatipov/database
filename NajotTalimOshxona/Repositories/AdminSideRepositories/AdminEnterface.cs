@@ -93,7 +93,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             adminRepository.AddFood(foodName, foodCost, photoLink, description);
 
             Console.Clear();
-            Thread.Sleep(200);
+            MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
             player2.PlaySync();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -135,6 +135,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 
             adminRepository.ChangeCost(foodName, foodCost);
             Console.Clear();
+            MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
             player2.PlaySync();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -163,7 +164,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                 {
                     adminRepository.ChangeFoodStatus(foodName);
                     Console.Clear();
-
+                    MyExtensionsPack.PushRepo();
                     SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
                     player2.PlaySync();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -174,7 +175,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                 {
                     adminRepository.ChangeFoodStatus(foodName, false);
                     Console.Clear();
-
+                    MyExtensionsPack.PushRepo();
                     SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
                     player2.PlaySync();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
