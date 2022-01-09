@@ -24,19 +24,25 @@ namespace NajotTalimOshxona
         {
             //AdminEnterance.Enterance();
 
-            var proc = new Process();
-            proc.StartInfo.WorkingDirectory = Consists.Paths.PushBatPath;
-            proc.StartInfo.FileName = "testbat.bat";
-            proc.StartInfo.CreateNoWindow = false;
-            proc.Start();
-            Thread.Sleep(10000);
-            proc.WaitForExit();
-            Console.WriteLine("asas");
-            Console.WriteLine(File.Exists(Consists.Paths.PushBatPath));
-            
+            //var proc = new Process();
+            //proc.StartInfo.WorkingDirectory = Consists.Paths.PushBatPath;
+            //proc.StartInfo.FileName = "testbat.bat
+            //proc.StartInfo.CreateNoWindow = false;
+            //proc.Start();
+            //proc.WaitForExit();
+            Process process;
+            String command = @"C:\Users\User\Desktop\push.bat";
+            ProcessStartInfo processInfo;
+            processInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
+            processInfo.CreateNoWindow = true;
+            processInfo.UseShellExecute = false;
+            // *** Redirect the output ***
+            processInfo.RedirectStandardError = true;
+            processInfo.RedirectStandardOutput = true;
 
-
-
+            process = Process.Start(processInfo);
+            Thread.Sleep(5000);
+            process.WaitForExit();
         }
     }
 }
