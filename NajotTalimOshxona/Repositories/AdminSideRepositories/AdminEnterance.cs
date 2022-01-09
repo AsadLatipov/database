@@ -1,14 +1,12 @@
-﻿using NajotTalimOshxona.Extensions;
-using NajotTalimOshxona.Repositories.AdminSideRepositories;
+﻿using NajotTalimOshxona.Repositories.AdminSideRepositories;
 using System;
 using System.Media;
-using System.Threading;
 
 namespace NajotTalimOshxona.Repositories
 {
     internal class AdminEnterance
     {
-        public static void Enterance()
+        public static async void Enterance()
         {
             Console.Write("Welcome Sir. Can you Enter your password\n>>> ");
             while (true)
@@ -44,7 +42,7 @@ namespace NajotTalimOshxona.Repositories
                             {
                                 try
                                 {
-                                    bool togo = adminEnterface.AddFood();
+                                    bool togo = await adminEnterface.AddFoodAsync();
                                     if (togo is true) goto label;
                                 }
                                 catch
@@ -58,7 +56,7 @@ namespace NajotTalimOshxona.Repositories
                                     Console.ReadKey();
                                     Console.Clear();
                                 }
-                                
+
                             }
                             #endregion
 
@@ -67,11 +65,11 @@ namespace NajotTalimOshxona.Repositories
                             {
                                 try
                                 {
-                                    bool togo = adminEnterface.ChangeCost();
+                                    bool togo = await adminEnterface.ChangeCostAsync();
                                     if (togo is true) goto label;
                                 }
                                 catch
-                                
+
                                 {
                                     SoundPlayer player1 = new SoundPlayer(@"../../../Media\Sounds\wrongbutton.wav");
                                     player1.PlaySync();
@@ -82,7 +80,7 @@ namespace NajotTalimOshxona.Repositories
                                     Console.ReadKey();
                                     Console.Clear();
                                 }
-                            
+
                             }
 
                             #endregion
@@ -92,7 +90,7 @@ namespace NajotTalimOshxona.Repositories
                             {
                                 try
                                 {
-                                    bool togo = adminEnterface.ChangeFoodStatus();
+                                    bool togo = await adminEnterface.ChangeFoodStatus();
                                     if (togo is true) goto label;
                                 }
                                 catch
@@ -106,7 +104,7 @@ namespace NajotTalimOshxona.Repositories
                                     Console.ReadKey();
                                     Console.Clear();
                                 }
-                                
+
                             }
                             #endregion
                         }

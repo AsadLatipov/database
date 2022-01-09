@@ -1,12 +1,7 @@
 ﻿using NajotTalimOshxona.Extensions;
-using NajotTalimOshxona;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Media;
-using System.Threading;
+using System.Threading.Tasks;
 
 namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 {
@@ -26,7 +21,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             adminRepository.ShowMenu();
         }
 
-        public bool AddFood()
+        public async Task<bool> AddFoodAsync()
         {
         mark:
             AdminRepository adminRepository = new AdminRepository();
@@ -95,7 +90,14 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             Console.Clear();
             MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
+
+            await Bot.SendFoodData();
+
+
             player2.PlaySync();
+
+            await Bot.SendFoodData();
+
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Databasega saqlandi :)");
             Console.ForegroundColor = ConsoleColor.White;
@@ -103,7 +105,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             return true;
         }
 
-        public bool ChangeCost()
+        public async Task<bool> ChangeCostAsync()
         {
         mark:
             AdminRepository adminRepository = new AdminRepository();
@@ -114,7 +116,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             if (foodName == "0")
             {
                 Console.Clear();
-                return true;;
+                return true; ;
             }
             Console.WriteLine("\n");
 
@@ -137,6 +139,9 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             Console.Clear();
             MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
+
+            await Bot.SendFoodData();
+
             player2.PlaySync();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine($"{foodName}ni narxi o'zgardi:)");
@@ -144,7 +149,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             return true;
         }
 
-        public bool ChangeFoodStatus()
+        public async Task<bool> ChangeFoodStatus()
         {
             AdminRepository adminRepository = new AdminRepository();
             Console.Clear();
@@ -165,8 +170,14 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                     adminRepository.ChangeFoodStatus(foodName);
                     Console.Clear();
                     MyExtensionsPack.PushRepo();
-                    SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
+
+                    SoundPlayer player2 = new(@"../../../Media\Sounds\bomb.wav");
+
+                    await Bot.SendFoodData();
+
                     player2.PlaySync();
+
+
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"{foodName} Status True :)");
                     Console.ForegroundColor = ConsoleColor.White;
@@ -177,6 +188,10 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                     Console.Clear();
                     MyExtensionsPack.PushRepo();
                     SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
+
+                    await Bot.SendFoodData();
+
+
                     player2.PlaySync();
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"{foodName} Status False :)");
@@ -187,7 +202,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                     Console.Clear();
                     return true;
                 }
-                
+
             }
             return true;
         }

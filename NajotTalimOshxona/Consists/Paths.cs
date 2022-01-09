@@ -9,9 +9,7 @@ namespace NajotTalimOshxona.Consists
 {
     internal class Paths
     {
-        public static string UsersDbPath = "../../../Database/Usersdata.json";
-
-        public static string FoodsDbpath = "../../../Database/Foodsdata.json";
+        public static string FoodsDbPath = "../../../Database/FoodsData.json";
 
         public static string PushBatPath = "../../../Others/push.bat";
 

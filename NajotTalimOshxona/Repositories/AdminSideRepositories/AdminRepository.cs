@@ -5,10 +5,6 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Cryptography;
 
 namespace NajotTalimOshxona.Repositories
 {
@@ -24,7 +20,7 @@ namespace NajotTalimOshxona.Repositories
 
             Console.WriteLine("\n");
 
-            string json = File.ReadAllText(Paths.FoodsDbpath);
+            string json = File.ReadAllText(Paths.FoodsDbPath);
             IList<Food> foods = JsonConvert.DeserializeObject<IList<Food>>(json);
 
             int idx = 0;
@@ -40,7 +36,7 @@ namespace NajotTalimOshxona.Repositories
         #region ChangeCost
         public void ChangeCost(string foodName, double newCost)
         {
-            string json = File.ReadAllText(Paths.FoodsDbpath);
+            string json = File.ReadAllText(Paths.FoodsDbPath);
 
             IList<Food> foods = JsonConvert.DeserializeObject<List<Food>>(json);
 
@@ -48,7 +44,7 @@ namespace NajotTalimOshxona.Repositories
                 if (food.Name == foodName)
                     food.Cost = newCost;
 
-            File.WriteAllText(Paths.FoodsDbpath, JsonConvert.SerializeObject(foods));
+            File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
 
@@ -56,14 +52,14 @@ namespace NajotTalimOshxona.Repositories
         #endregion
 
         #region AddFood
-        public void AddFood(string foodName, double foodCost, string photoLink,  string description)
+        public void AddFood(string foodName, double foodCost, string photoLink, string description)
         {
-            string json = File.ReadAllText(Paths.FoodsDbpath);
+            string json = File.ReadAllText(Paths.FoodsDbPath);
             IList<Food> foods = JsonConvert.DeserializeObject<IList<Food>>(json);
 
-            foods.Add(new Food { Name = foodName, Cost = foodCost , Photolink = photoLink, Description = description});
+            foods.Add(new Food { Name = foodName, Cost = foodCost, Photolink = photoLink, Description = description });
 
-            File.WriteAllText(Paths.FoodsDbpath, JsonConvert.SerializeObject(foods));
+            File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
         }
@@ -72,7 +68,7 @@ namespace NajotTalimOshxona.Repositories
         #region ChangeFoodStatus
         public void ChangeFoodStatus(string foodName, bool status)
         {
-            string json = File.ReadAllText(Paths.FoodsDbpath);
+            string json = File.ReadAllText(Paths.FoodsDbPath);
 
             IList<Food> foods = JsonConvert.DeserializeObject<List<Food>>(json);
 
@@ -80,13 +76,13 @@ namespace NajotTalimOshxona.Repositories
                 if (food.Name == foodName)
                     food.IsActive = status;
 
-            File.WriteAllText(Paths.FoodsDbpath, JsonConvert.SerializeObject(foods));
+            File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
         }
         public void ChangeFoodStatus(string foodName)
         {
-            string json = File.ReadAllText(Paths.FoodsDbpath);
+            string json = File.ReadAllText(Paths.FoodsDbPath);
 
             IList<Food> foods = JsonConvert.DeserializeObject<List<Food>>(json);
 
@@ -94,7 +90,7 @@ namespace NajotTalimOshxona.Repositories
                 if (food.Name == foodName)
                     food.IsActive = true;
 
-            File.WriteAllText(Paths.FoodsDbpath, JsonConvert.SerializeObject(foods));
+            File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
 
             File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
