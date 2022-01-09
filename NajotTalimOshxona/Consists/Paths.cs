@@ -13,6 +13,8 @@ namespace NajotTalimOshxona.Consists
 
         public static string FoodsDbpath = "../../../Database/Foodsdata.json";
 
+        public static string PushBatPath = "../../../Others/push.bat";
+
         public static byte[] Password = {38, 220, 251, 131, 195, 194, 222, 77, 65, 62, 224, 125, 110, 169, 222, 124};
     }
 }

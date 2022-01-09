@@ -26,6 +26,8 @@ namespace NajotTalimOshxona
         static void Main(string[] args)
         {
             //AdminEnterance.Enterance();
+            File.Open(Consists.Paths.PushBatPath, FileMode.Open);
+
         }
     }
 }
