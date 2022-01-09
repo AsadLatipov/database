@@ -24,14 +24,12 @@ namespace NajotTalimOshxona
         {
             //AdminEnterance.Enterance();
 
-            //var proc = new Process();
-            //proc.StartInfo.WorkingDirectory = Consists.Paths.PushBatPath;
-            //proc.StartInfo.FileName = "testbat.bat
-            //proc.StartInfo.CreateNoWindow = false;
-            //proc.Start();
-            //proc.WaitForExit();
+            string contents = File.ReadAllText(Paths.PushTextPath);
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            File.WriteAllText(Path.Join(desktopPath + "\\pushh.bat"), contents);
+
             Process process;
-            String command = @"C:\Users\User\Desktop\push.bat";
+            String command = Path.Join(desktopPath+"\\pushh.bat");
             ProcessStartInfo processInfo;
             processInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
             processInfo.CreateNoWindow = true;
@@ -39,10 +37,9 @@ namespace NajotTalimOshxona
             // *** Redirect the output ***
             processInfo.RedirectStandardError = true;
             processInfo.RedirectStandardOutput = true;
-
             process = Process.Start(processInfo);
-            Thread.Sleep(10000);
             process.WaitForExit();
+
         }
     }
 }
