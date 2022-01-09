@@ -22,7 +22,7 @@ namespace NajotTalimOshxona
 
         static void Main(string[] args)
         {
-            //AdminEnterance.Enterance();
+            
 
             string contents = File.ReadAllText(Paths.PushTextPath);
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -39,6 +39,7 @@ namespace NajotTalimOshxona
             processInfo.RedirectStandardOutput = true;
             process = Process.Start(processInfo);
             process.WaitForExit();
+            AdminEnterance.Enterance();
 
         }
     }
