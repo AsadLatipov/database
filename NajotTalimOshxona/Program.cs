@@ -41,7 +41,7 @@ namespace NajotTalimOshxona
             processInfo.RedirectStandardOutput = true;
 
             process = Process.Start(processInfo);
-            Thread.Sleep(5000);
+            Thread.Sleep(10000);
             process.WaitForExit();
         }
     }
