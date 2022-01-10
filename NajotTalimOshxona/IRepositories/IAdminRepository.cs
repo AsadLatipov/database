@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace NajotTalimOshxona.IRepositories
+﻿namespace NajotTalimOshxona.IRepositories
 {
     internal interface IAdminRepository
     {
@@ -14,5 +8,5 @@ namespace NajotTalimOshxona.IRepositories
         public void ChangeFoodStatus(string foodName, bool status);
         public void AddFood(string foodName, double foodCost, string photoLink, string description);
 
-    }   
+    }
 }

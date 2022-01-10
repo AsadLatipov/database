@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -18,8 +18,6 @@
   <ItemGroup>
     <PackageReference Include="Extended.Wpf.Toolkit" Version="4.2.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Octokit" Version="0.50.0" />
-    <PackageReference Include="SharpTL" Version="0.9.0" />
     <PackageReference Include="System.Windows.Extensions" Version="6.0.0" />
     <PackageReference Include="Telegram.Bot" Version="17.0.0" />
   </ItemGroup>

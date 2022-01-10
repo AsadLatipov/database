@@ -1,14 +1,7 @@
-﻿using System;
-using NajotTalimOshxona.Consists;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using NajotTalimOshxona.Consists;
+using System;
 using System.Security.Cryptography;
-using NajotTalimOshxona.Moduls;
-using System.IO;
-using Newtonsoft.Json;
-using System.Diagnostics;
+using System.Text;
 
 namespace NajotTalimOshxona.Extensions
 {
@@ -58,23 +51,6 @@ namespace NajotTalimOshxona.Extensions
                 }
             }
             return dasa;
-        }
-        public static void PushRepo()
-        {
-            string contents = File.ReadAllText(Paths.PushTextPath);
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            File.WriteAllText(Path.Join(desktopPath + "\\pushh.bat"), contents);
-            Process process;
-            String command = Path.Join(desktopPath + "\\pushh.bat");
-            ProcessStartInfo processInfo;
-            processInfo = new ProcessStartInfo("cmd.exe", "/c " + command);
-            processInfo.CreateNoWindow = true;
-            processInfo.UseShellExecute = false;
-            // *** Redirect the output ***
-            processInfo.RedirectStandardError = true;
-            processInfo.RedirectStandardOutput = true;
-            process = Process.Start(processInfo);
-            process.WaitForExit();
         }
 
 

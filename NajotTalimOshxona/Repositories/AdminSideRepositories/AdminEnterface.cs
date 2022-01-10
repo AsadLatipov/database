@@ -1,11 +1,12 @@
 ﻿using NajotTalimOshxona.Extensions;
+using NajotTalimOshxona.IRepositories;
 using System;
 using System.Media;
 using System.Threading.Tasks;
 
 namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 {
-    internal class AdminEnterface
+    internal class AdminEnterface: IAdminEnterface
     {
         public bool Password()
         {
@@ -88,7 +89,6 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
             adminRepository.AddFood(foodName, foodCost, photoLink, description);
 
             Console.Clear();
-            MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
 
             await Bot.SendFoodData();
@@ -137,7 +137,6 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 
             adminRepository.ChangeCost(foodName, foodCost);
             Console.Clear();
-            MyExtensionsPack.PushRepo();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
 
             await Bot.SendFoodData();
@@ -169,7 +168,6 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                 {
                     adminRepository.ChangeFoodStatus(foodName);
                     Console.Clear();
-                    MyExtensionsPack.PushRepo();
 
                     SoundPlayer player2 = new(@"../../../Media\Sounds\bomb.wav");
 
@@ -186,7 +184,6 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                 {
                     adminRepository.ChangeFoodStatus(foodName, false);
                     Console.Clear();
-                    MyExtensionsPack.PushRepo();
                     SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
 
                     await Bot.SendFoodData();

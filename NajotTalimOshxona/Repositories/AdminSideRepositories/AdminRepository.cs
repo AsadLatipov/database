@@ -45,8 +45,6 @@ namespace NajotTalimOshxona.Repositories
                     food.Cost = newCost;
 
             File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
 
         }
         #endregion
@@ -60,8 +58,6 @@ namespace NajotTalimOshxona.Repositories
             foods.Add(new Food { Name = foodName, Cost = foodCost, Photolink = photoLink, Description = description });
 
             File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
         }
         #endregion
 
@@ -77,8 +73,6 @@ namespace NajotTalimOshxona.Repositories
                     food.IsActive = status;
 
             File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-            File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
         }
         public void ChangeFoodStatus(string foodName)
         {
@@ -91,9 +85,6 @@ namespace NajotTalimOshxona.Repositories
                     food.IsActive = true;
 
             File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
-            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-
-            File.WriteAllText(Path.Join(desktopPath + "\\Foodsdata.json"), JsonConvert.SerializeObject(foods));
         }
         #endregion
 
