@@ -85,6 +85,9 @@ namespace NajotTalimOshxona.Repositories
                     food.IsActive = true;
 
             File.WriteAllText(Paths.FoodsDbPath, JsonConvert.SerializeObject(foods));
+            
+            
+
         }
         #endregion
 

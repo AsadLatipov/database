@@ -2,7 +2,7 @@
 using System;
 using NajotTalimOshxona.Repositories.AdminSideRepositories;
 using System.Media;
-
+using NajotTalimOshxona.Repositories;
 
 namespace NajotTalimOshxona
 {
@@ -12,7 +12,11 @@ namespace NajotTalimOshxona
         {
             Enterance();
         }
-
+        public static async void CallFunction()
+        {
+            await Bot.SendFoodData();
+            Enterance();
+        }
         public static async void Enterance()
         {
             Console.Write("Welcome Sir. Can you Enter your password\n>>> ");

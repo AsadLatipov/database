@@ -18,6 +18,7 @@ namespace NajotTalimOshxona.Repositories
                 iof.FileName = "FoodsData.json";
 
                 await botClient.SendDocumentAsync(BotConfig.ADMIN_CHAT, iof);
+                Program.Enterance();
 
                 return;
             }

@@ -90,16 +90,10 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 
             Console.Clear();
             SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
-
-            await Bot.SendFoodData();
-
-
             player2.PlaySync();
-
-            await Bot.SendFoodData();
-
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine("Databasega saqlandi :)");
+            Program.CallFunction();
             Console.ForegroundColor = ConsoleColor.White;
 
             return true;
@@ -137,14 +131,13 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
 
             adminRepository.ChangeCost(foodName, foodCost);
             Console.Clear();
-            SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
-
-            await Bot.SendFoodData();
-
-            player2.PlaySync();
             Console.ForegroundColor = ConsoleColor.DarkGreen;
             Console.WriteLine($"{foodName}ni narxi o'zgardi:)");
             Console.ForegroundColor = ConsoleColor.White;
+            SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
+            player2.PlaySync();
+            Program.CallFunction();
+
             return true;
         }
 
@@ -170,11 +163,8 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                     Console.Clear();
 
                     SoundPlayer player2 = new(@"../../../Media\Sounds\bomb.wav");
-
-                    await Bot.SendFoodData();
-
                     player2.PlaySync();
-
+                    Program.CallFunction();
 
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     Console.WriteLine($"{foodName} Status True :)");
@@ -186,7 +176,7 @@ namespace NajotTalimOshxona.Repositories.AdminSideRepositories
                     Console.Clear();
                     SoundPlayer player2 = new SoundPlayer(@"../../../Media\Sounds\bomb.wav");
 
-                    await Bot.SendFoodData();
+                    Program.CallFunction();
 
 
                     player2.PlaySync();
